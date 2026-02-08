@@ -25,24 +25,24 @@ export default function TopNavigation() {
       <div className="container flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/">
-          <a className="text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
+          <span className="text-2xl font-bold text-primary hover:opacity-80 transition-opacity cursor-pointer">
             SYMPLE Lab
-          </a>
+          </span>
         </Link>
 
         {/* Navigation Links */}
         <div className="flex items-center gap-8">
           {navItems.map((item) => (
             <Link key={item.path} href={item.path}>
-              <a
-                className={`text-sm font-medium transition-colors ${
+              <span
+                className={`text-sm font-medium transition-colors cursor-pointer ${
                   isActive(item.path)
                     ? "text-primary border-b-2 border-primary pb-1"
                     : "text-foreground hover:text-primary"
                 }`}
               >
                 {item.label}
-              </a>
+              </span>
             </Link>
           ))}
         </div>
