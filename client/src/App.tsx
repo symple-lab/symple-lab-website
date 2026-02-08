@@ -11,7 +11,8 @@ import Research from "./pages/Research";
 import PublicationsHub from "./pages/PublicationsHub";
 import PeopleHub from "./pages/PeopleHub";
 import Gallery from "./pages/Gallery";
-import Paper from "./pages/publications/Paper";
+import Journal from "./pages/publications/Journal";
+import Conference from "./pages/publications/Conference";
 import Patent from "./pages/publications/Patent";
 import Award from "./pages/publications/Award";
 import News from "./pages/publications/News";
@@ -26,7 +27,8 @@ function Router() {
       <Route path={"/about"} component={About} />
       <Route path={"/research"} component={Research} />
       <Route path={"/publications"} component={PublicationsHub} />
-      <Route path={"/publications/paper"} component={Paper} />
+      <Route path={"/publications/journal"} component={Journal} />
+      <Route path={"/publications/conference"} component={Conference} />
       <Route path={"/publications/patent"} component={Patent} />
       <Route path={"/publications/award"} component={Award} />
       <Route path={"/publications/news"} component={News} />
