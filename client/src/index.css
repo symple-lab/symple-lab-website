@@ -3,20 +3,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* 
-  Design Philosophy: Neo-Brutalist Geometry
-  - Sharp angles and bold geometric forms
-  - High contrast: Cobalt Blue (#0047AB), Charcoal (#2C2C2C), Silver (#C0C0C0)
-  - Typography: Space Grotesk (headlines), IBM Plex Sans (body)
-  - Hard shadows, thick borders (4-6px)
-  - Asymmetric modular grid with diagonal cuts
-*/
-
 @theme inline {
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -49,70 +40,51 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  
-  /* Neo-Brutalist Custom Properties */
-  --font-headline: 'Space Grotesk', sans-serif;
-  --font-body: 'IBM Plex Sans', sans-serif;
-  --cobalt-blue: #0047AB;
-  --charcoal: #2C2C2C;
-  --silver: #C0C0C0;
-  --pure-white: #FFFFFF;
 }
 
 :root {
-  --primary: var(--cobalt-blue);
-  --primary-foreground: var(--pure-white);
-  --sidebar-primary: var(--cobalt-blue);
-  --sidebar-primary-foreground: var(--pure-white);
-  --chart-1: #0047AB;
-  --chart-2: #0066FF;
-  --chart-3: #2C2C2C;
-  --chart-4: #C0C0C0;
-  --chart-5: #E5E5E5;
-  --radius: 0px;
-  --background: var(--pure-white);
-  --foreground: var(--charcoal);
-  --card: var(--pure-white);
-  --card-foreground: var(--charcoal);
-  --popover: var(--pure-white);
-  --popover-foreground: var(--charcoal);
-  --secondary: var(--silver);
-  --secondary-foreground: var(--charcoal);
-  --muted: #E5E5E5;
-  --muted-foreground: #666666;
-  --accent: var(--cobalt-blue);
-  --accent-foreground: var(--pure-white);
-  --destructive: #DC2626;
-  --destructive-foreground: var(--pure-white);
-  --border: var(--charcoal);
-  --input: var(--charcoal);
-  --ring: var(--cobalt-blue);
-  --sidebar: var(--pure-white);
-  --sidebar-foreground: var(--charcoal);
-  --sidebar-accent: var(--silver);
-  --sidebar-accent-foreground: var(--charcoal);
-  --sidebar-border: var(--charcoal);
-  --sidebar-ring: var(--cobalt-blue);
+  --primary: #0066FF;
+  --primary-foreground: #FFFFFF;
+  --sidebar-primary: #0066FF;
+  --sidebar-primary-foreground: #FFFFFF;
+  --chart-1: #0066FF;
+  --chart-2: #0052CC;
+  --chart-3: #003D99;
+  --chart-4: #002966;
+  --chart-5: #001433;
+  --radius: 0.5rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.2 0.01 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.01 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.01 0);
+  --secondary: oklch(0.95 0.01 200);
+  --secondary-foreground: oklch(0.2 0.01 0);
+  --muted: oklch(0.9 0.01 0);
+  --muted-foreground: oklch(0.5 0.01 0);
+  --accent: #00DD00;
+  --accent-foreground: oklch(0.2 0.01 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.85 0.01 0);
+  --input: oklch(0.95 0.01 0);
+  --ring: #0066FF;
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.2 0.01 0);
+  --sidebar-accent: oklch(0.95 0.01 200);
+  --sidebar-accent-foreground: oklch(0.2 0.01 0);
+  --sidebar-border: oklch(0.85 0.01 0);
+  --sidebar-ring: #0066FF;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-body);
-    line-height: 1.6;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-headline);
-    font-weight: 900;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-  }
-  
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -154,47 +126,49 @@
       max-width: 1280px;
     }
   }
-  
-  /* Neo-Brutalist Utility Classes */
-  .hard-shadow {
-    box-shadow: 8px 8px 0 var(--charcoal);
+
+  /* Clean horizontal divider */
+  .divider-line {
+    @apply border-b border-border;
   }
-  
-  .hard-shadow-sm {
-    box-shadow: 4px 4px 0 var(--charcoal);
+
+  /* Dashed border box for news/items */
+  .dashed-box {
+    @apply border-2 border-dashed border-border p-4 rounded-lg;
   }
-  
-  .hard-shadow-blue {
-    box-shadow: 8px 8px 0 var(--cobalt-blue);
+
+  /* Tag styling */
+  .tag {
+    @apply inline-block px-3 py-1 text-sm font-medium border border-border rounded-full;
   }
-  
-  .thick-border {
-    border-width: 4px;
-    border-color: var(--charcoal);
+
+  .tag-accent {
+    @apply bg-accent text-accent-foreground border-accent;
   }
-  
-  .diagonal-cut {
-    clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+
+  /* Publication item */
+  .publication-item {
+    @apply py-6 border-b border-border last:border-b-0;
   }
-  
-  .diagonal-cut-reverse {
-    clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 100%);
+
+  /* Section heading */
+  .section-heading {
+    @apply text-3xl font-bold mb-8 pb-4 border-b-2 border-primary;
   }
 }
 
-@layer utilities {
-  .animate-slide-up {
-    animation: slideUp 0.3s ease-out;
-  }
-  
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+.display-font {
+  font-family: 'Playfair Display', serif;
 }
