@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function PeopleHub() {
   const peopleCategories = [
-    { title: "Faculty", desc: "Principal investigator and advisors", path: "/people/professor" },
+    { title: "Professor", desc: "Principal investigator and advisors", path: "/people/professor" },
     { title: "Students", desc: "PhD candidates and master's students", path: "/people/student" },
     { title: "Gallery", desc: "Lab photos and team moments", path: "/people/gallery" }
   ];

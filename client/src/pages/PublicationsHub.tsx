@@ -21,9 +21,24 @@ export default function PublicationsHub() {
     const loadPublications = async () => {
       try {
         const response = await fetch("/publications.xlsx");
+        if (!response.ok) {
+          throw new Error(`Failed to fetch: ${response.status}`);
+        }
+        
         const data = await response.arrayBuffer();
-        const workbook = XLSX.read(data, { type: "array" });
+        
+        // 올바른 옵션으로 파일 읽기
+        const workbook = XLSX.read(data, { 
+          type: "array",
+          cellFormula: false,
+          cellStyles: false
+        });
+        
         const sheetName = workbook.SheetNames[0];
+        if (!sheetName) {
+          throw new Error("No sheets found in workbook");
+        }
+        
         const sheet = workbook.Sheets[sheetName];
         const rows = XLSX.utils.sheet_to_json<Publication>(sheet);
 
@@ -37,6 +52,16 @@ export default function PublicationsHub() {
         localStorage.setItem("publications", JSON.stringify(validRows));
       } catch (error) {
         console.error("Publications 파일 로드 오류:", error);
+        // Fallback: localStorage에서 데이터 로드 시도
+        const stored = localStorage.getItem("publications");
+        if (stored) {
+          try {
+            const data = JSON.parse(stored);
+            setPublications(data);
+          } catch (e) {
+            console.error("localStorage 로드 실패:", e);
+          }
+        }
       } finally {
         setLoading(false);
       }
