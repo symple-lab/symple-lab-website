@@ -19,14 +19,14 @@ export default function Home() {
           
           <div className="flex flex-wrap gap-4">
             <Link href="/about">
-              <a className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:opacity-90 transition-opacity">
+              <span className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:opacity-90 transition-opacity cursor-pointer">
                 Learn More <ArrowRight className="w-4 h-4" />
-              </a>
+              </span>
             </Link>
             <Link href="/research">
-              <a className="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary font-medium rounded-lg hover:bg-blue-50 transition-colors">
+              <span className="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary font-medium rounded-lg hover:bg-blue-50 transition-colors cursor-pointer">
                 Our Research
-              </a>
+              </span>
             </Link>
           </div>
         </div>
@@ -84,43 +84,43 @@ export default function Home() {
           
           <div className="grid md:grid-cols-2 gap-6">
             <Link href="/publications">
-              <a className="p-6 border-2 border-dashed border-border rounded-lg hover:border-primary hover:bg-white transition-all">
+              <div className="p-6 border-2 border-dashed border-border rounded-lg hover:border-primary hover:bg-white transition-all cursor-pointer">
                 <h3 className="text-lg font-bold text-primary mb-2">Publications</h3>
                 <p className="text-muted-foreground mb-4">Explore our papers, patents, awards, and news</p>
                 <span className="inline-flex items-center gap-2 text-primary font-medium">
                   View All <ArrowRight className="w-4 h-4" />
                 </span>
-              </a>
+              </div>
             </Link>
 
             <Link href="/people">
-              <a className="p-6 border-2 border-dashed border-border rounded-lg hover:border-primary hover:bg-white transition-all">
+              <div className="p-6 border-2 border-dashed border-border rounded-lg hover:border-primary hover:bg-white transition-all cursor-pointer">
                 <h3 className="text-lg font-bold text-primary mb-2">People</h3>
                 <p className="text-muted-foreground mb-4">Meet our faculty, students, and collaborators</p>
                 <span className="inline-flex items-center gap-2 text-primary font-medium">
                   View All <ArrowRight className="w-4 h-4" />
                 </span>
-              </a>
+              </div>
             </Link>
 
             <Link href="/gallery">
-              <a className="p-6 border-2 border-dashed border-border rounded-lg hover:border-primary hover:bg-white transition-all">
+              <div className="p-6 border-2 border-dashed border-border rounded-lg hover:border-primary hover:bg-white transition-all cursor-pointer">
                 <h3 className="text-lg font-bold text-primary mb-2">Chip Gallery</h3>
                 <p className="text-muted-foreground mb-4">Showcase of our chip designs and tape-outs</p>
                 <span className="inline-flex items-center gap-2 text-primary font-medium">
                   View All <ArrowRight className="w-4 h-4" />
                 </span>
-              </a>
+              </div>
             </Link>
 
             <Link href="/research">
-              <a className="p-6 border-2 border-dashed border-border rounded-lg hover:border-primary hover:bg-white transition-all">
+              <div className="p-6 border-2 border-dashed border-border rounded-lg hover:border-primary hover:bg-white transition-all cursor-pointer">
                 <h3 className="text-lg font-bold text-primary mb-2">Research Areas</h3>
                 <p className="text-muted-foreground mb-4">Explore our current research focus and directions</p>
                 <span className="inline-flex items-center gap-2 text-primary font-medium">
                   View All <ArrowRight className="w-4 h-4" />
                 </span>
-              </a>
+              </div>
             </Link>
           </div>
         </div>
